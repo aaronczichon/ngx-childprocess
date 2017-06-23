@@ -1,4 +1,5 @@
 import { ElectronWindow } from '../typings/index';
+import { ChildProcess } from './childProcess.interface';
 
 declare const window: ElectronWindow;
 
@@ -20,8 +21,8 @@ export class ChildProcessService {
         return !!window.navigator.userAgent.match(/Electron/);
     }
 
-    public get childProcess(): any {
-        return this.child_process ? this.child_process : null;
+    public get childProcess(): ChildProcess {
+        return <ChildProcess>this.child_process ? this.child_process : null;
     }
 
 }
